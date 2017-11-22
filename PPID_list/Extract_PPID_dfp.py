@@ -1,9 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
-
-
+from pyspark import SparkConf, SparkContext
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from pyspark.sql import SQLContext
@@ -11,10 +9,9 @@ import pyspark.sql.functions as func
 from datetime import datetime, timedelta
 import re
 import subprocess
+import sys
+sc = SparkContext()
 sql = SQLContext(sc)
-
-
-# In[95]:
 
 
 #read a process click data from all the months
@@ -28,7 +25,11 @@ data_final_aggre = data_aggre
 sample = data_final_aggre.where(col('Clicks') > 0)
 
 #pass the list of order names 
-orders_list = ['Zilingo_20171101_2017-API0346','Zilingo_20171104_2017-API0346']
+orders = sys.argv[1]
+
+#process the list of orders
+orders_list = map(str, orders.strip('[]').split(','))
+
 
 #extract order ids  from the orders name
 original_orders = sql.read.parquet("gs://ds-taste-dfp/order_details/")
@@ -40,7 +41,7 @@ for i in orders_list:
 raw_orders = included_orders.select('Order_id','Order_name','IOStartDate','IOEndDate').where(col('orders_ppid') == 'TRUE')
 
 #print order names and order ids
-print "Order details from DFP \n"
+print "\n Order details from DFP \n"
 raw_orders.show()
 
 #join to get the users with the specific orders
@@ -78,7 +79,7 @@ adid_ppid_udf = udf(adid_to_ppid, StringType())
 final_data = final_data.withColumn('ppid',adid_ppid_udf('adid'))
 
 #write to a folder in 3 partitions 
-path = "gs://ds-url-catag/orders/Zilingo/nov"
+path = sys.argv[2]
 final_data.coalesce(3).select('adid').write.mode('overwrite').format("com.databricks.spark.csv").save(path)
 print "Written to Bucket in three partitions" + path
 
