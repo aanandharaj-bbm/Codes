@@ -4,7 +4,7 @@ The script crawls all of DFP data and generates PPID list for the campaigns name
 
 To execute the script,do the following
 
-spark-submit Extract_PPID_dfp.py campaingn_names'_list location_for_storage
+spark-submit Extract_PPID_dfp.py [campaingn_names'_list] [location_for_storage]
 
 Example:
 
