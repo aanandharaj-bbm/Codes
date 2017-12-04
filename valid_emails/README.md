@@ -1,4 +1,6 @@
 
+#Validating Email addresses
+
 The script is used to validate email address according to IETF RFC 5322 standards
 
 To use the code
