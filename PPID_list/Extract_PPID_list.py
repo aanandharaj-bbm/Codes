@@ -28,8 +28,6 @@ orders = sys.argv[1]
 #process the list of orders
 orders_list = map(str, orders.strip('[]').split(','))
 
-
-orders_list = ['Zilingo_20171101_2017-API0346','Zilingo_20171104_2017-API0346']
 #extract order ids  from the orders name
 original_orders = sql.read.parquet("gs://ds-taste-dfp/order_details/")
 included_orders = original_orders
