@@ -1,7 +1,7 @@
 
 # Generating detailed DFP data for Microview report generation
 
-There are two pyspark scripts,run the scripts in the below order.
+Two pyspark scripts are present in the folder that needs to be run in the below order : 
 
 1. Data_collection.ipynb
 
