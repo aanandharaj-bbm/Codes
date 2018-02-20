@@ -12,8 +12,15 @@ To run the shell scripts,execute the below command:
 ```./paid.sh```
 ```./subscriptions.sh```
 
+Copy all the data to a gcs bucket using the following command 
+```gsutil cp -r all_stickers/* [GCS_BUCKET_NAME]```
+
+Example : 
+```gsutil cp -r all_stickers/* gs://ds-url-catag/stick_bytype/all_stickers_feb20/```
 
 
 To run the pyspark program,run the following command
 ```spark-submit mypythonfile.py```
+
+
 
