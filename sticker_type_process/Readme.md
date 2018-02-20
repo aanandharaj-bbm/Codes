@@ -1,4 +1,4 @@
-#These scripts help in scraping sticker data from FIJI database and process them 
+# These scripts help in scraping sticker data from FIJI database and process them 
 
 The scripts uses jquery to parse the data,hence install 'jq' before executing the scripts. To install jq,execute the following command:
 sudo apt-get install jq
