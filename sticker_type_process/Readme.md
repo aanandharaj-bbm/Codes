@@ -12,7 +12,7 @@ To run the shell scripts,execute the below command:
 ```./paid.sh```
 ```./subscriptions.sh```
 
-Copy all the data to a gcs bucket using the following command 
+Copy all the data to a gcs bucket using the command 
 ```gsutil cp -r all_stickers/* [GCS_BUCKET_NAME]```
 
 Example : 
