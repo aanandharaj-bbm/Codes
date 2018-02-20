@@ -7,11 +7,12 @@ The scripts uses jquery to parse the data,hence install 'jq' before executing th
 To extract the data run the shell scripts first and process them with the pyspark script .
 
 To run the shell scripts,execute the below command:
-./free.sh 
+```./free.sh 
 ./discontinued.sh
 ./paid.sh
-./subscriptions.sh
+./subscriptions.sh```
+
 
 To run the pyspark program,run the following command
-
+```spark-submit mypythonfile.py```
 
