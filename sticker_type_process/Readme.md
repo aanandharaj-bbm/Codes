@@ -20,7 +20,13 @@ Example :
 
 
 To run the pyspark program,run the following command
-```spark-submit mypythonfile.py```
+``` spark-submit  scrape_stick_types.py [GCS_BUCKET_NAME_READ] [GCS_BUCKET_NAME_WRITE] ```
+
+[GCS_BUCKET_NAME_READ] - is the bucket name mentioned in the previous step where the scraped data is present
+[GCS_BUCKET_NAME_WRITE] - is the bucket name where the processed data should be write
+
+Example:
+``` spark-submit  scrape_stick_types.py "gs://ds-url-catag/stick_bytype/all_stickers_feb20/" "gs://ds-url-catag/stick_bytype/agg_proc_stickertypes/"```
 
 
 
