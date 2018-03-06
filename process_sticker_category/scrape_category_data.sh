@@ -14,8 +14,8 @@ echo "$j"
     	file_two=_discont_stickers_
     	new_file_name=$fileone$file_two$x
         echo "$new_file_name"
-     	part_one=''
-	part_two='&cap=GIF_STK'
+     	part_one='https://fiji.bbmessaging.com/api/v1/categories?platform=android&country='
+	part_two='&cap=GIF_STK&start='
     	part_three='&limit=2100'
     	api=$part_one$j$part_two$x$part_three
     	echo "$api" 
