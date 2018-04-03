@@ -14,8 +14,8 @@ echo "$k"
 		for i in `seq 1 $max`
 		do
 		fileone=$j
-	    	file_two=_discont_stickers_
-    		new_file_name=$fileone$file_two$x
+	    	file_two=categorystickers
+    		new_file_name=$fileone$file_two$x$k
 	        echo "$new_file_name"
      		part_one='https://fiji.bbmessaging.com/api/v1/sticker_packs?platform=android&country='
 		part_two='&cap=GIF_STK&category='
@@ -23,7 +23,7 @@ echo "$k"
 		part_four='&limit=2100'
 	    	api=$part_one$j$part_two$k$part_three$x$part_four
     		echo "$api" 
-	    	curl -s "$api" | jq '.stickerpacks[] |  [.id,.name,.animated] |@csv ' -M >  all_stickers/"$new_file_name"
+	    	curl -s "$api" | jq '.stickerpacks[] |  [.id,.name,.animated,.licenseType] |@csv ' -M >  all_stickers/"$new_file_name"
     		x=$((x+120))
 		done
 	done
